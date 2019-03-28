@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
-
+#参考资料http://www.runoob.com/django/django-form.html
 #表单
 def search_form(request):
     return render_to_response('get.html')
