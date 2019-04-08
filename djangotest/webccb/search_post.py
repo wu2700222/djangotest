@@ -21,6 +21,17 @@ def hello(request):
         body = request.POST['q']
         #获取head中的数据
         HTTP_RID=request.META.get("HTTP_RID")
-        return HttpResponse("获取body中的数据:"+body+"\n获取head中的数据:"+HTTP_RID)
+        return HttpResponse("获取body中的数据q:"+body+"\n获取head中的数据HTTP_RID:"+HTTP_RID)
+    else:
+        return HttpResponse('非法请求,请加入参数q')
+
+@csrf_exempt
+def getrid(request):
+    if request.method == "POST" :
+        #获取body中的数据
+        body = request.POST['q']
+        #获取head中的数据
+        HTTP_RID=request.META.get("HTTP_RID")
+        return HttpResponse("获取body中的数据q:"+body+"\n获取head中的数据HTTP_RID:"+HTTP_RID)
     else:
         return HttpResponse('非法请求,请加入参数q')

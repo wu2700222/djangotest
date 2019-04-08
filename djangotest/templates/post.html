@@ -4,21 +4,6 @@
 <meta charset="utf-8">
 <title>wuwei post请求</title>
 <script>
-//get
-function get() {
-    //创建XMLHttpRequest
-　　let xhr = new XMLHttpRequest();
-    //监听响应
-　　xhr.onreadystatechange = function () {
-　　　　if (xhr.readyState === 4 && (xhr.state === 200 || xhr.state === 304)) {
-　　　　　　console.log(xhr.responseText);
-　　　　}
-　　};
-　　xhr.open("GET","/try/ajax/ajax_info.txt",true);
-　　xhr.send();
-}
-
-
 function getInfo()
 {
 	// 获取User-agent的 方法
@@ -56,12 +41,12 @@ function post () {
     //请求参数、url、创建XMLHttpRequest
     let body = 'q=wuwei',
     // url = 'http://192.168.0.19:8080/posttest',
-    url='https://dev-qll.otosaas.com/posttest',
+    url='https://dev-qll.otosaas.com/getrid',
     xhr = new XMLHttpRequest();
     xhr.open('post', url);
     //设置header
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.setRequestHeader('rid', 'aaaaa');
+    // xhr.setRequestHeader('rid', 'aaaaa');
     xhr.send(body);
     xhr.onreadystatechange = function () {
      /*

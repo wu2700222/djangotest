@@ -13,5 +13,6 @@ urlpatterns=[
     #post请求 ^ 与 $分别为匹配开始与结束符,精确匹配
     url(r'^search-post$', search_post.post),
 
-    url(r'^posttest$', search_post.hello)
+    url(r'^posttest$', search_post.hello),
+    url(r'^getrid$', search_post.getrid)
 ]
