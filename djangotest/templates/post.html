@@ -50,6 +50,8 @@ function getInfo()
 	  alert("Your browser does not support XMLHTTP.");
 	}
 }  
+xmlhttp = new XMLHttpRequest();
+alert(xmlhttp.getAllResponseHeaders());
 //post
 function post () {
     //请求参数、url、创建XMLHttpRequest
@@ -60,7 +62,7 @@ function post () {
     xhr.open('post', url);
     //设置header
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    // xhr.setRequestHeader('rid', 'aaaaa');
+    xhr.setRequestHeader('rid', 'aaaaa');
     xhr.send(body);
     xhr.onreadystatechange = function () {
      /*
