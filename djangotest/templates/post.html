@@ -18,6 +18,38 @@ function get() {
 　　xhr.send();
 }
 
+
+function getInfo()
+{
+	// 获取User-agent的 方法
+	alert(navigator.userAgent);
+	
+	// 获取response header信息
+	if (window.XMLHttpRequest) {
+	  // code for Firefox, Mozilla, IE7, etc.
+	  xmlhttp = new XMLHttpRequest();
+	} else if (window.ActiveXObject) {
+	  // code for IE6, IE5
+	  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	if (xmlhttp != null) {
+	  xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4) {
+		  // 4 = "loaded"
+		  if (xmlhttp.status == 200) {
+			// 200 = "OK
+			alert(xmlhttp.getAllResponseHeaders());
+		  } else {
+			alert("Problem retrieving data:" + xmlhttp.statusText);
+		  }
+		}
+	  };
+	  xmlhttp.open("GET", document.location.href, true);
+	  xmlhttp.send(null);
+	} else {
+	  alert("Your browser does not support XMLHTTP.");
+	}
+}  
 //post
 function post () {
     //请求参数、url、创建XMLHttpRequest
@@ -56,7 +88,7 @@ function post () {
 　　}
     
 }
-
+getInfo();
 post();
 </script>
 </head>
