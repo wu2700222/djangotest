@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from . import view,search_get,search_post
+from . import view,search_get,search_post,api_qlltest
 
 urlpatterns=[
     #http://127.0.0.1:8080/hello
@@ -14,5 +14,9 @@ urlpatterns=[
     url(r'^search-post$', search_post.post),
 
     url(r'^posttest$', search_post.hello),
-    url(r'^getrid$', search_post.getrid)
+    url(r'^getrid$', search_post.getrid),
+
+    url(r'^qlltest1$', api_qlltest.qlltest1),
+    url(r'^qlltest2$', api_qlltest.qlltest2),
+    url(r'^qlltest3$', api_qlltest.qlltest3)
 ]
