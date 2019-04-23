@@ -9,8 +9,8 @@ def search_form(request):
 #接受请求数据
 def get(request):
     request.encoding='utf-8'
-    if 'q' in request.GET:
-        message='参数g的内容为：'+request.GET['q']
+    if 'bodys' in request.GET:
+        message='参数bodys的内容为：'+request.GET['bodys']
     else:
-        message='没有获取到g参数'
+        message='没有获取到bodys参数'
     return HttpResponse(message)

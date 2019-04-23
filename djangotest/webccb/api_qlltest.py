@@ -8,30 +8,15 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt,csrf_protect
 #参考资料http://www.runoob.com/django/django-form.html
 # 接收POST请求数据
-def post(request):
-    ctx ={}
-    if request.POST:
-        ctx['rlt'] = request.POST['bodys']
-    return render(request, "post.html", ctx)
-
 @csrf_exempt
-def hello(request):
+def qlltest1(request):
     if request.method == "POST" :
         #获取body中的数据
         body = request.POST['bodys']
         #获取head中的数据
         HTTP_RID=request.META.get("HTTP_RID")
-        return HttpResponse("获取body中的数据q:"+body+"\n获取head中的数据HTTP_RID:"+HTTP_RID)
-    else:
-        return HttpResponse('非法请求,请加入参数q')
 
-@csrf_exempt
-def getrid(request):
-    if request.method == "POST" :
-        #获取body中的数据
-        body = request.POST['bodys']
-        #获取head中的数据
-        HTTP_RID=request.META.get("HTTP_RID")
+        #这里得调用qlltest2的api获取数据
         return HttpResponse("获取body中的数据bodys:"+body+"\n获取head中的数据HTTP_RID:"+HTTP_RID)
     else:
         return HttpResponse('非法请求,请加入参数bodys')

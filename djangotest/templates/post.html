@@ -39,14 +39,17 @@ function getInfo()
 //post
 function post () {
     //请求参数、url、创建XMLHttpRequest
-    let body = 'q=wuwei',
-    // url = 'http://192.168.0.19:8080/posttest',
-    url='https://dev-qll.otosaas.com/getrid',
+    let body = 'bodys=wuwei',
+    //本地配置转到nginx的时候注释
+    url = 'http://127.0.0.1:8080/getrid',
+    //nginx的时候开启配置
+    // url='https://dev-qll.otosaas.com/getrid',
     xhr = new XMLHttpRequest();
     xhr.open('post', url);
     //设置header
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    // xhr.setRequestHeader('rid', 'aaaaa');
+    //本地配置转到nginx的时候注释
+    xhr.setRequestHeader('rid', 'aaaaa');
     xhr.send(body);
     xhr.onreadystatechange = function () {
      /*
@@ -81,7 +84,7 @@ post();
 <body>
     <form action="/search-post" method="post">
         {% csrf_token %}
-        <input type="text" name="q">
+        <input type="text" name="bodys">
         <input type="submit" value="post提交">
     </form>
  
