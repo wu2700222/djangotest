@@ -41,15 +41,15 @@ function post () {
     //请求参数、url、创建XMLHttpRequest
     let body = 'bodys=wuwei',
     //本地配置转到nginx的时候注释
-    url = 'http://127.0.0.1:8080/getrid',
+    // url = 'http://127.0.0.1:8080/getrid',
     //nginx的时候开启配置
-    // url='https://dev-qll.otosaas.com/getrid',
+    url='https://dev-qll.otosaas.com/getrid',
     xhr = new XMLHttpRequest();
     xhr.open('post', url);
     //设置header
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     //本地配置转到nginx的时候注释
-    xhr.setRequestHeader('rid', 'aaaaa');
+    // xhr.setRequestHeader('rid', 'aaaaa');
     xhr.send(body);
     xhr.onreadystatechange = function () {
      /*
