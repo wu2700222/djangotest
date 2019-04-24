@@ -48,8 +48,8 @@ def getrid(request):
 
 def post_api(request,apipath,headers,bodyvalues):
     
-    # connection = http.client.HTTPSConnection('127.0.0.1:8080')
-    connection = http.client.HTTPConnection('127.0.0.1:8080')
+    connection = http.client.HTTPSConnection('dev-api.otosaas.com')
+    # connection = http.client.HTTPConnection('127.0.0.1:8080')
     headers = headers
     json_foo = json.dumps(bodyvalues)
     connection.request('POST', apipath, json_foo, headers)
