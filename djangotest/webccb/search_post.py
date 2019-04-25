@@ -48,7 +48,11 @@ def getrid(request):
 
 def post_api(request,apipath,headers,bodyvalues):
     
-    connection = http.client.HTTPSConnection('dev-api.otosaas.com')
+    #外网域名通讯
+    #connection = http.client.HTTPSConnection('dev-api.otosaas.com')
+    #内网域名通讯
+    connection = http.client.HTTPConnection('dev-kong-qllapi.localdomain:8000')
+    #内网端口通讯
     # connection = http.client.HTTPConnection('127.0.0.1:8080')
     headers = headers
     json_foo = json.dumps(bodyvalues)
