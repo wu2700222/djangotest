@@ -11,12 +11,12 @@ import json
 import http.client
 # 接收POST请求数据
 
-def post_api(request,apipath,headers,bodyvalues):
+def post_api(request,apipath,headers,bodyvalues,kongurl):
     
     #外网域名通讯
     #connection = http.client.HTTPSConnection('dev-api.otosaas.com')
     #内网域名通讯
-    connection = http.client.HTTPConnection('dev-kong-qllapi.localdomain:8000')
+    connection = http.client.HTTPConnection(kongurl)
     #内网端口通讯
     # connection = http.client.HTTPConnection('127.0.0.1:8080')
     headers = headers
@@ -38,7 +38,7 @@ def qlltest1(request):
         'phone_num':'13817552207'
         }
 
-        response=post_api(request,'/qlltest2',headers,bodyvalues)
+        response=post_api(request,'/qlltest2',headers,bodyvalues,'dev-kong2-qllapi.localdomain:8000')
         # print(HTTP_RID)
         # return HttpResponse('HTTP_RID:'+str(HTTP_RID))
         #post请求下个接口
@@ -62,7 +62,7 @@ def qlltest2(request):
         'token':'123',
         'phone_num':'1234'
         }
-        response=post_api(request,'/qlltest3',headers,bodyvalues)
+        response=post_api(request,'/qlltest3',headers,bodyvalues,'dev-kong3-qllapi.localdomain:8000')
 
         #这里得调用qlltest3的api获取数据
         return HttpResponse("\n"+response.read().decode()+"\n qlltest2接口获取head中的数据HTTP_RID:"+HTTP_RID)

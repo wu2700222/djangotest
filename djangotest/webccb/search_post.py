@@ -41,17 +41,17 @@ def getrid(request):
         'phone_num':'13817552207'
         }
 
-        response=post_api(request,'/qlltest1',headers,bodyvalues)
+        response=post_api(request,'/qlltest1',headers,bodyvalues,'dev-kong1-qllapi.localdomain:8000')
         return HttpResponse("接口返回值:"+response.read().decode())
     else:
         return HttpResponse('非法请求,请加入参数bodys')
 
-def post_api(request,apipath,headers,bodyvalues):
+def post_api(request,apipath,headers,bodyvalues,kongurl):
     
     #外网域名通讯
     #connection = http.client.HTTPSConnection('dev-api.otosaas.com')
     #内网域名通讯
-    connection = http.client.HTTPConnection('dev-kong-qllapi.localdomain:8000')
+    connection = http.client.HTTPConnection(kongurl)
     #内网端口通讯
     # connection = http.client.HTTPConnection('127.0.0.1:8080')
     headers = headers
