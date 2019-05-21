@@ -20,4 +20,4 @@ def get(request):
 @csrf_exempt
 def orders(request):
     
-    return HttpResponse("message"+request.GET)
+    return HttpResponse(request.GET['userId'])

@@ -19,5 +19,5 @@ urlpatterns=[
     url(r'^qlltest1$', api_qlltest.qlltest1),
     url(r'^qlltest2$', api_qlltest.qlltest2),
     url(r'^qlltest3$', api_qlltest.qlltest3),
-    url(r'^orders$', search_get.orders)
+    url(r'^orders/info/v1$', search_get.orders)
 ]
