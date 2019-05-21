@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
+from django.views.decorators.csrf import csrf_exempt,csrf_protect
 #参考资料http://www.runoob.com/django/django-form.html
 #表单
 def search_form(request):
@@ -14,3 +15,9 @@ def get(request):
     else:
         message='没有获取到bodys参数'
     return HttpResponse(message)
+
+
+@csrf_exempt
+def orders(request):
+    
+    return HttpResponse("message"+request.GET)
