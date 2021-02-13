@@ -1,0 +1,83 @@
+Not Found: /orers
+[21/May/2019 09:07:33] "GET /orers HTTP/1.1" 404 2938
+Not Found: /favicon.ico
+[21/May/2019 09:07:33] "GET /favicon.ico HTTP/1.1" 404 2956
+Internal Server Error: /orders
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/ll/Desktop/work/gogs/djangotest/djangotest/webccb/search_get.py", line 23, in orders
+    return HttpResponse("message"+request.GET)
+TypeError: must be str, not QueryDict
+[21/May/2019 09:07:37] "GET /orders HTTP/1.1" 500 62364
+Not Found: /orders/
+[21/May/2019 09:08:30] "GET /orders/?userId=752c05a1a7b96a1cac0196f9ba54e7a5 HTTP/1.1" 404 2984
+Internal Server Error: /orders
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/ll/Desktop/work/gogs/djangotest/djangotest/webccb/search_get.py", line 23, in orders
+    return HttpResponse("message"+request.GET)
+TypeError: must be str, not QueryDict
+[21/May/2019 09:08:40] "GET /orders?userId=752c05a1a7b96a1cac0196f9ba54e7a5 HTTP/1.1" 500 63000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 14 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+May 21, 2019 - 09:06:39
+Django version 2.0.7, using settings 'webccb.settings'
+Starting development server at http://0.0.0.0:32028/
+Quit the server with CONTROL-C.
+[21/May/2019 09:09:14] "GET /orders?userId=752c05a1a7b96a1cac0196f9ba54e7a5 HTTP/1.1" 200 7
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 14 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+May 21, 2019 - 09:09:11
+Django version 2.0.7, using settings 'webccb.settings'
+Starting development server at http://0.0.0.0:32028/
+Quit the server with CONTROL-C.
+[21/May/2019 09:09:55] "GET /orders?userId=752c05a1a7b96a1cac0196f9ba54e7a5 HTTP/1.1" 200 6
+[21/May/2019 09:10:05] "GET /orders?userId=752c05a1a7b96a1cac0196f9ba54e7a5&aa=2 HTTP/1.1" 200 8
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 14 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+May 21, 2019 - 09:09:53
+Django version 2.0.7, using settings 'webccb.settings'
+Starting development server at http://0.0.0.0:32028/
+Quit the server with CONTROL-C.
+[21/May/2019 09:10:29] "GET /orders?userId=752c05a1a7b96a1cac0196f9ba54e7a5&aa=2 HTTP/1.1" 200 32
+Not Found: /orders/info/v1
+[21/May/2019 09:11:33] "GET /orders/info/v1??userId=752c05a1a7b96a1cac0196f9ba54e7a5&aa=2 HTTP/1.1" 404 3015
+Not Found: /orders/info/v1
+[21/May/2019 09:11:45] "GET /orders/info/v1?userId=752c05a1a7b96a1cac0196f9ba54e7a5 HTTP/1.1" 404 3005
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 14 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+May 21, 2019 - 09:10:28
+Django version 2.0.7, using settings 'webccb.settings'
+Starting development server at http://0.0.0.0:32028/
+Quit the server with CONTROL-C.
+[21/May/2019 09:12:27] "GET /orders/info/v1?userId=752c05a1a7b96a1cac0196f9ba54e7a5 HTTP/1.1" 200 32

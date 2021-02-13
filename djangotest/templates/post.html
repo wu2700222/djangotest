@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script type="text/javascript" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/js/lib/jquery-1.10.2_1c4228b8.js"></script>
+ <script type="text/javascript" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superlanding/js/lib/jquery_0affbc1.js"></script>
+ 
+<meta charset="utf-8">
+<title>wuwei post请求</title>
+<script>
+function getInfo()
+{
+	// 获取User-agent的 方法
+	alert(navigator.userAgent);
+	
+	// 获取response header信息
+	if (window.XMLHttpRequest) {
+	  // code for Firefox, Mozilla, IE7, etc.
+	  xmlhttp = new XMLHttpRequest();
+	} else if (window.ActiveXObject) {
+	  // code for IE6, IE5
+	  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	if (xmlhttp != null) {
+	  xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4) {
+		  // 4 = "loaded"
+		  if (xmlhttp.status == 200) {
+			// 200 = "OK
+			alert(xmlhttp.getAllResponseHeaders());
+		  } else {
+			alert("Problem retrieving data:" + xmlhttp.statusText);
+		  }
+		}
+	  };
+	  xmlhttp.open("GET", document.location.href, true);
+	  xmlhttp.send(null);
+	} else {
+	  alert("Your browser does not support XMLHTTP.");
+	}
+}  
+
+//post
+function post () {
+    //请求参数、url、创建XMLHttpRequest
+    let body = 'bodys=wuwei',
+    //本地配置转到nginx的时候注释
+    // url = 'http://127.0.0.1:8080/getrid',
+    //nginx的时候开启配置
+    url='https://dev-qll.otosaas.com/getrid',
+    xhr = new XMLHttpRequest();
+    xhr.open('post', url);
+    //设置header
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    //本地配置转到nginx的时候注释
+    // xhr.setRequestHeader('rid', 'aaaaa');
+    xhr.send(body);
+    xhr.onreadystatechange = function () {
+     /*
+         * 2    服务器向浏览器响应请求
+         * 
+         * readyState 属性表示Ajax请求的当前状态。它的值用数字代表。
+                0 代表未初始化。 还没有调用 open 方法
+                1 代表正在加载。 open 方法已被调用，但 send 方法还没有被调用
+                2 代表已加载完毕。send 已被调用。请求已经开始
+                3 代表交互中。服务器正在发送响应
+                4 代表完成。响应发送完毕
+                
+            常用状态码及其含义：
+                404 没找到页面(not found)
+                403 禁止访问(forbidden)
+                500 内部服务器出错(internal service error)
+                200 一切正常(ok)
+                304 没有被修改(not modified)(服务器返回304状态，表示源文件没有被修改 )
+    */ 
+　　if (xhr.readyState === 4 && ( xhr.status === 200 || xhr.status === 304 )){
+            //alert(xhr.responseText);
+        // alert( "readyState="+xhr.readyState+" xhr.status="+xhr.status); 
+            document.getElementById("div_context").innerHTML=xhr.responseText;
+　　　　}
+　　}
+    
+}
+
+
+//getInfo();
+post();
+</script>
+</head>
+<body>
+    <form action="/search-post" method="post">
+        {% csrf_token %}
+        <input type="text" name="bodys">
+        <input type="submit" value="post提交">
+    </form>
+ 
+    <p>{{ rlt }}</p>
+
+ <div id="div_context"></div>
+ <img src="https://fuss10.elemecdn.com/b/d9/489647a8dcba95a2faaae25f76facpng.png?imageView2/1/w/150/h/150/format/png" alt="桂满陇·陇外（大宁中心广场店）">
+</body>
+</html>
